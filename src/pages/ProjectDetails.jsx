@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { fetchProjectThunk, addMemberThunk } from "../projectThunk";
-import { fetchIssuesThunk } from "../../issues/issueThunk";
-import Button from "../../../components/ui/Button";
-import Modal from "../../../components/ui/Modal";
-import Input from "../../../components/ui/Input";
-import Loader from "../../../components/ui/Loader";
-import IssueCard from "../../issues/components/issueCard";
+import { fetchProjectThunk, addMemberThunk } from "../features/projects/projectThunk";
+import { fetchIssuesThunk } from "../features/issues/issueThunk";
+import Button from "../components/ui/Button";
+import Modal from "../components/ui/Modal";
+import Input from "../components/ui/Input";
+import Loader from "../components/ui/Loader";
+import IssueCard from "../features/issues/components/issueCard";
 
 const ProjectDetails = () => {
   const { id } = useParams();

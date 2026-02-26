@@ -5,7 +5,7 @@ import {
   assignIssueAPI,
   updateIssueStatusAPI,
   deleteIssueAPI,
-} from "../../api/issue.api";
+} from "../../services/issue.api";
 
 export const fetchIssuesThunk = createAsyncThunk(
   "issues/fetchAll",

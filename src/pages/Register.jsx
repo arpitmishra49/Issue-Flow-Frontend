@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { registerThunk } from "../authThunk";
-import { clearError } from "../authSlice";
+import { registerThunk } from "../features/auth/authThunk";
+import { clearError } from "../features/auth/authSlice";
 
 const roles = [
   {

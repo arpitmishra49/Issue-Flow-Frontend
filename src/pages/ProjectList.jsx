@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProjectsThunk, createProjectThunk, deleteProjectThunk } from "../projectThunk";
+import { fetchProjectsThunk, createProjectThunk, deleteProjectThunk } from "../features/projects/projectThunk";
 import { Link } from "react-router-dom";
-import Button from "../../../components/ui/Button";
-import Modal from "../../../components/ui/Modal";
-import Input from "../../../components/ui/Input";
-import Loader from "../../../components/ui/Loader";
+import Button from "../components/ui/Button";
+import Modal from "../components/ui/Modal";
+import Input from "../components/ui/Input";
+import Loader from "../components/ui/Loader";
 
 const ProjectList = () => {
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import {
   getProjectAPI,
   addMemberAPI,
   deleteProjectAPI,
-} from "../../api/project.api";
+} from "../../services/project.api";
 
 /**
  * Fetch all projects

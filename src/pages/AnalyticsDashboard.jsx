@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { fetchAnalyticsThunk } from "../analyticsThunks";
-import Loader from "../../../components/ui/Loader";
+import { fetchAnalyticsThunk } from "../features/analytics/analyticsThunks";
+import Loader from "../components/ui/Loader";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getProjectAnalyticsAPI } from "../../api/analytics.api";
+import { getProjectAnalyticsAPI } from "../../services/analytics.api";
 
 export const fetchAnalyticsThunk = createAsyncThunk(
   "analytics/fetchByProject",
