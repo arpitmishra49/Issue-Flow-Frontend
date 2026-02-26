@@ -11,8 +11,6 @@ export const loginThunk = createAsyncThunk(
       return rejectWithValue(err.response?.data?.message || "Login failed");
     }
   }
-
-  
 );
 
 export const registerThunk = createAsyncThunk(
