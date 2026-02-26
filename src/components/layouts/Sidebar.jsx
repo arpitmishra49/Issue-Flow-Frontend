@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../features/auth/authSlice";
-
+import { useSelector as useProjects } from "react-redux";
 
 const Sidebar = () => {
   const dispatch   = useDispatch();
@@ -24,6 +24,8 @@ const Sidebar = () => {
   };
   const avatarGradient = roleColors[user?.role] || "from-zinc-600 to-zinc-700";
 
+  const isAdmin = user?.role === "admin";
+
   const mainNav = [
     {
       label: "Dashboard",
@@ -44,7 +46,8 @@ const Sidebar = () => {
         </svg>
       ),
     },
-    {
+    // Issues hidden for admin — they manage via projects/analytics
+    ...(!isAdmin ? [{
       label: "Issues",
       path: "/issues",
       icon: (
@@ -52,7 +55,7 @@ const Sidebar = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
         </svg>
       ),
-    },
+    }] : []),
   ];
 
   return (

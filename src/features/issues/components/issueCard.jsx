@@ -55,7 +55,7 @@ const IssueCard = ({ issue }) => {
     dispatch(updateIssueStatusThunk({ id: issue._id, data: { status: e.target.value } }));
 
   const handleAssign = (e) =>
-    dispatch(assignIssueThunk({ id: issue._id, data: { developerId: e.target.value } }));
+    dispatch(assignIssueThunk({ id: issue._id, data: { developerId: e.target.value || null } }));
 
   const handleDelete = () => {
     if (window.confirm(`Delete "${issue.title}"? This cannot be undone.`))

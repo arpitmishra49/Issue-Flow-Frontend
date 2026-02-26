@@ -51,9 +51,14 @@ const issueSlice = createSlice({
       // Assign
       .addCase(assignIssueThunk.fulfilled, (state, action) => {
         const updated = action.payload;
-        state.issues = state.issues.map((issue) =>
-          issue._id === updated._id ? { ...issue, ...updated } : issue
-        );
+        if (updated?._id) {
+          state.issues = state.issues.map((issue) =>
+            issue._id === updated._id ? { ...issue, ...updated } : issue
+          );
+        }
+      })
+      .addCase(assignIssueThunk.rejected, (state, action) => {
+        state.error = action.payload || "Failed to assign issue";
       })
 
       // Update Status

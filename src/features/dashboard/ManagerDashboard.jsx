@@ -66,7 +66,7 @@ const ManagerDashboard = () => {
     .filter((m, i, arr) => arr.findIndex((x) => x._id === m._id) === i);
 
   const handleAssign = (issueId, developerId) => {
-    dispatch(assignIssueThunk({ id: issueId, data: { developerId } }));
+    dispatch(assignIssueThunk({ id: issueId, data: { developerId: developerId || null } }));
   };
 
   if (iLoading) return <Loader />;
