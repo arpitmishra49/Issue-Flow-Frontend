@@ -138,6 +138,7 @@ const AnalyticsDashboard = () => {
     { label: "Resolved",    value: resolvedCount,   color: "bg-emerald-500", textColor: "text-emerald-400" },
     { label: "Closed",      value: closedCount,     color: "bg-zinc-500",    textColor: "text-zinc-400"    },
   ];
+  //checking 
 
   const priorityRows = [
     { label: "Critical", value: criticalCount, color: "bg-red-500",    textColor: "text-red-400"    },
