@@ -1,25 +1,27 @@
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:3000",
-  "http://localhost:5174",
-  // Support comma-separated CLIENT_URL env var e.g. "https://a.vercel.app,https://b.vercel.app"
-  ...(process.env.CLIENT_URL ? process.env.CLIENT_URL.split(",").map((s) => s.trim()) : []),
-];
+import axios from "axios";
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (Postman, server-to-server, curl)
-    if (!origin) return callback(null, true);
+const API = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1",
+  withCredentials: true,
+});
 
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.error(`CORS blocked: ${origin}`);
-      console.error(`Allowed: ${allowedOrigins.join(", ")}`);
-      callback(new Error("Not allowed by CORS"));
+API.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+API.interceptors.response.use(
+  (res) => res,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem("token");
+      window.location.href = "/login";
     }
-  },
-  credentials: true,
-};
+    return Promise.reject(error);
+  }
+);
 
-export default corsOptions;
+export default API;
