@@ -1,7 +1,7 @@
 import API from "./axios";
 
-export const createProjectAPI = (data) => API.post("/projects", data);
-export const getProjectsAPI = () => API.get("/projects");
-export const getProjectAPI = (id) => API.get(`/projects/${id}`);
-export const addMemberAPI = (id, data) => API.patch(`/projects/${id}/add-member`, data);
-export const deleteProjectAPI = (id) => API.delete(`/projects/${id}`);
+export const createIssueAPI = (data) => API.post("/issues", data);
+export const getIssuesAPI = (params) => API.get("/issues", { params });
+export const assignIssueAPI = (id, data) => API.patch(`/issues/${id}/assign`, data);
+export const updateIssueStatusAPI = (id, data) => API.patch(`/issues/${id}/status`, data);
+export const deleteIssueAPI = (id) => API.delete(`/issues/${id}`);

@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../features/auth/authSlice";
-import { useSelector as useProjects } from "react-redux";
+
 
 const Sidebar = () => {
   const dispatch   = useDispatch();

@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
-import DashboardLayout from "../components/layouts/DashBoardLayout";
+
 
 import Login from "../features/auth/pages/Login";
 import Register from "../features/auth/pages/Register";
@@ -15,7 +15,9 @@ import IssueBoard from "../features/issues/issueBoard";
 import ProjectList from "../features/projects/pages/ProjectList";
 import ProjectDetails from "../features/projects/pages/ProjectDetails";
 
-import AnalyticsDashboard from "../features/analytics/pages/AnalyticsDashborad";
+
+import DashboardLayout from "../components/layouts/DashboardLayout";
+import AnalyticsDashboard from "../features/analytics/pages/AnalyticsDashboard";
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
